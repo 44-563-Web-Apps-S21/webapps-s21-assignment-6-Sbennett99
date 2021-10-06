@@ -45,6 +45,29 @@ function processGuess(){
 
 }
 </script>
+<div>
+    <img src="Buffalo.jpg" alt="Buffalo" width="200" height="200" id="image1" onclick="newImage()">
+</div>
+<script>
+    let usingImage = 1
+    function newImage(){
+        let theImage = document.getElementById("image1")
+        switch(usingImage){
+            case 1:
+                theImage.src = "newt.jpg"
+                usingImage = 2
+                break
+            case 2:
+                theImage.src = "tiger.jpeg"
+                usingImage = 3
+                break
+            default:
+                theImage.src = "Buffalo.jpg"
+                usingImage = 1
+                
+        }
 
+    }
+</script>
 </body>
 </html> 
