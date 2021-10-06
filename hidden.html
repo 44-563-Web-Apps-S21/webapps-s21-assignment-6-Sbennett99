@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Hidden things
+        </title>
+    </head>
+ 
+<body>
+
+<h2>Hidden things by Seth Bennett</h2>
+
+<form>
+    <label for="form_secret">Enter The Secret Word</label>
+    <input type ="password" id="form_secret" name="form_secret" value="Secret"> <br>
+
+    <label for="form_guess">Enter a guess</label>
+    <input type ="text" id="form_guess" name="form_guess" > <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">Correct: 0 Wrong: 0</p>
+
+<script> 
+let correct = 0
+let wrong = 0
+
+function processGuess(){
+    console.log("Getting form values")
+    secret = document.getElementById("form_secret").value
+    guess = document.getElementById("form_guess").value
+    
+    out = document.getElementById("result")
+    if(secret == guess){
+        correct += 1
+        alert("Congratulations")
+        out.innerHTML = "Correct: "+ correct +" Wrong: "+ wrong
+    } else {
+        wrong += 1
+        alert("Sorry")
+        out.innerHTML = "Correct: "+ correct +" Wrong: "+ wrong
+    }
+
+}
+</script>
+
+</body>
+</html> 
