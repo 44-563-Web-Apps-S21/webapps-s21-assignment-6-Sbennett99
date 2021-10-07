@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+         Arithmetic by Seth
+     </title>
+ </head>
+<body>
+
+<h2>Seth Bennett computes</h2>
+
+<form>
+    <label for="base">Enter a base</label>
+    <input type ="number" id="base" name="base" value=10> <br>
+
+    <label for="exponent">Enter an exponent</label>
+    <input type ="number" id="exponent" name="exponent" value=2> <br>
+
+    <input type="button" onclick="powers()" value="Compute">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+
+
+function powers(){
+    let base = document.getElementById("base").value
+    let exp = document.getElementById("exponent").value
+    let result = ""
+    let total = base
+    
+    out = document.getElementById("result")
+    result += "Powers of " + base + " are:"
+    for(i=1; i<=exp; i++){
+        count = 1
+        while(count < i){
+            total *= base
+            count +=1
+        }
+        result += " " + total
+        total = base
+        
+    }
+    result += " (exponent was " + exp +")"
+    out.innerHTML = result
+}
+</script>
+
+<form >
+    <input type ="radio" id="plus" name="operator" value="plus" onclick="processRadio(this.id)">
+    <label for="plus">+</label></br>
+
+    <input type ="radio" id="minus" name="operator" value="minus" onclick="processRadio(this.id)">
+    <label for="minus">-</label></br>
+    
+    <input type ="radio" id="multiply" name="operator" value="times" onclick="processRadio(this.id)">
+    <label for="multiply" >*</label></br>
+    
+    <input type ="radio" id="divide" name="operator" value="divide" onclick="processRadio(this.id)">
+    <label for="divide">/</label>
+     
+    
+</form>
+
+<script> 
+
+
+    function processRadio(clicked){
+        let base = document.getElementById("base").value
+        let exp = document.getElementById("exponent").value
+        
+        let plus = document.getElementById("plus").checked
+        let minus = document.getElementById("minus").checked
+        let multiply = document.getElementById("multiply").checked
+        let divide = document.getElementById("divide").checked
+        
+        let out = document.getElementById("result")
+        let total = 0
+
+        if(plus){
+            total = +base + +exp
+            out.innerHTML = total
+        }
+        else if(minus){
+            total = base - exp
+            out.innerHTML = total
+        }
+        else if(multiply){
+            total = base * exp
+            out.innerHTML = total
+        }
+        else if(divide){
+            total = base / exp
+            out.innerHTML = total
+        }
+    }
+    </script>
+
+</body>
+</html> 
